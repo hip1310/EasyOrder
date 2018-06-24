@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router'
+import store from './store/configureStore'
+import routerHistory from './utils/routing/history'
+import Routes from './routes/Routes'
 
 class App extends Component {
+
   render() {
     return (
-      <div>
-        Going to code a new app. Excited! Well nothing to see here at the moment.
-      </div>
+      <Provider store={store}>
+        <ConnectedRouter history={routerHistory}>
+          <Routes />
+        </ConnectedRouter>
+      </Provider>
     )
   }
 }
 
 export default App
+
