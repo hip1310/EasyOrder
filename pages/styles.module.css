@@ -1,0 +1,85 @@
+.login_page {
+    display: flex;
+    flex-direction: row;
+}
+
+.login_left_container {
+    width: 60%;
+}
+
+.login_right_container {
+    width: 40%;
+}
+
+.login_right_container form {
+    padding-left: 23%;
+    padding-right: 23%;
+    width: 100%;
+}
+
+.login_right_container .googleLogin_button {
+    padding-left: 23%;
+    padding-right: 23%;
+}
+
+.credential_title {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.credential_title_small {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.link:hover {
+    color: rgb(63, 60, 241);
+    cursor: pointer;
+}
+
+.dark_navbar {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .login_page {
+        display: flex;
+        flex-direction: column;
+        width: inherit;
+    }
+
+    .login_page .login_left_container {
+        width: 100%;
+    }
+
+    .login_page .login_right_container {
+        width: 100%;
+    }
+
+    .credential_title {
+        margin-top: 10%;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .credential_title_small {
+        margin-top: 10%;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .login_right_container form {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .login_right_container .googleLogin_button {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .login_right_container .link {
+        font-size: 14px;
+    }
+}
