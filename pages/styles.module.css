@@ -38,8 +38,8 @@
 }
 
 .dark_navbar {
-    background-color: #333 !important;
-    color: #fff !important;
+    background-color: rgb(221, 208, 200) !important;
+    color: #000 !important;
 }
 
 @media only screen and (max-width: 600px) {

@@ -62,8 +62,8 @@ export default function Home() {
               Home
             </Typography>
             <Button color="inherit" onClick={() => router.push("/orders")}>
-                  Orders
-                </Button>
+              Orders
+            </Button>
             <Button color="inherit" onClick={() => handleLogout()}>
               Logout
             </Button>
@@ -81,10 +81,10 @@ export default function Home() {
         </b>
       </h4>
       {/* <FilterContainer/> */}
-      <div className="row" style={{marginRight:"0"}}>
+      <div className="row" style={{ marginRight: "0" }}>
         <div
           className="col-3"
-          style={{ paddingTop: "50px", textAlign: "center" }}
+          style={{ paddingTop: "50px", textAlign: "center", margin: "0 auto" }}
         >
           <Product />
         </div>

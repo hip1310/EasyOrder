@@ -1,6 +1,6 @@
 # Client
 
-The Client module is a web project that encompasses all the components required to manage the web view of the Enticy Stuff application.
+The Client module is a web project that encompasses all the components required to manage the web view of the Easy Order application.
 
 ## Installation
 

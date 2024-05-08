@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 import { useRouter } from "next/router";
 import Box from "@mui/material/Box";
 import styles from "../styles.module.css";
@@ -16,10 +16,15 @@ const ProductDetails = () => {
   const router = useRouter();
 
   type PlaceOrder = {
-    Qty: string;
+    Qty: number;
     size: string;
   };
-  const { handleSubmit, control, formState, getValues } = useForm<PlaceOrder>();
+  const { handleSubmit, control, formState, getValues, setValue, register } =
+    useForm<PlaceOrder>({
+      defaultValues: {
+        Qty: 1,
+      },
+    });
 
   const handleLogout = async () => {
     // await logout()
@@ -42,6 +47,8 @@ const ProductDetails = () => {
     return price;
   };
 
+  const [quantity, setQuantity] = useState(1);
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -60,6 +67,13 @@ const ProductDetails = () => {
         </AppBar>
       </Box>
       <div className=" mx-5 mt-20 pb-16">
+        <h3 className="text-xl font-bold mb-2">
+          <ArrowBackIcon
+            onClick={() => {
+              router.push("/product");
+            }}
+          />
+        </h3>
         <div className="row">
           <div className="col-6">
             <img
@@ -69,12 +83,10 @@ const ProductDetails = () => {
             />
           </div>
           <div className="col-6" style={{ marginTop: "50px" }}>
-            <h3 className="text-xl font-bold mb-2">
-              <ArrowBackIcon
-                onClick={() => {
-                  router.push("/product");
-                }}
-              />
+            <h3
+              className="text-xl font-bold mb-2"
+              style={{ marginLeft: "30px" }}
+            >
               {"coca-cola"}
             </h3>
             <p
@@ -107,14 +119,53 @@ const ProductDetails = () => {
                 )}
               />
             </div>
-            <Input
-              control={control}
-              style={{ marginLeft: "30px", width: "200px", marginTop: "10px" }}
-              formState={formState}
-              name="Qty"
-              label="Qty"
-              type="number"
-            />
+            <div style={{ display: "flex", margin: "20px 30px" }}>
+              <span
+                className="text-xl font-bold mb-2"
+                style={{ marginRight: "30px" }}
+              >
+                Quantity:
+              </span>
+              <div
+                style={{
+                  borderRadius: "50%",
+                  padding: "10px",
+                  border: "1px solid black",
+                  height: "25px",
+                  lineHeight: 0,
+                  margin: "auto 2px",
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  if (quantity > 1) {
+                    setValue("Qty", quantity - 1);
+                    setQuantity(quantity - 1);
+                  }
+                }}
+              >
+                -
+              </div>
+              <div style={{ margin: "auto 10px", width: "15px" }}>
+                {getValues().Qty}
+              </div>
+              <div
+                style={{
+                  borderRadius: "50%",
+                  padding: "10px",
+                  border: "1px solid black",
+                  height: "25px",
+                  lineHeight: 0,
+                  margin: "auto 2px",
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  setValue("Qty", quantity + 1);
+                  setQuantity(quantity + 1);
+                }}
+              >
+                +
+              </div>
+            </div>
             <div style={{ marginLeft: "30px", marginTop: "10px" }}>
               <b>Expected Delivery : 2-3 days</b>
             </div>
